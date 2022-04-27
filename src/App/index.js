@@ -30,46 +30,49 @@ function App() {
 
   return (
     <React.Fragment>
-    <TodoHeader>
-      <TodoCounter
-        totalTodos={totalTodos}
-        completedTodos={completedTodos}    
-      />
-      
-      <TodoSearch
-      searchValue={searchValue}
-      setSearchValue={setSearchValue}
-      />
-    </TodoHeader>
-      <TodoList>
-          {error && <TodosError/>}
-          {loading && 
-          new Array(4).fill().map((item, index)=>(
-            <Todosloading key={index} />))}
-          {(!loading && !searchTodos.length) && <Emptytodos/>}
+      <TodoHeader>
+        <TodoCounter
+          totalTodos={totalTodos}
+          completedTodos={completedTodos}    
+        />
+        
+        <TodoSearch
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        />
+      </TodoHeader>
 
-          {searchTodos.map(todo => (
+        <TodoList
+          error={error}
+          onError={()=> <TodosError/>}
+          loading={loading}
+          onLoading={()=> <Todosloading/>}
+          searchTodos={searchTodos}
+          onEmpty={()=> <Emptytodos/>}  
+          
+          render={todo => (
           <TodoItem 
-          key={todo.text} 
-          text={todo.text}
-          completed={todo.completed}
-          onComplete={()=>completeTodo(todo.text)}
-          onDelete ={() => deleteTodo(todo.text)}     
-          />
-          ))}
-      </TodoList>
-        {!!openModal && (
-          <Modal>
-            <TodoForm 
-              setOpenModal={setOpenModal}
-              addTodo={addTodo}
+            key={todo.text} 
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={()=>completeTodo(todo.text)}
+            onDelete ={() => deleteTodo(todo.text)}     
             />
-          </Modal>
-        )}
-    <CreateTodoButton
-      setOpenModal={setOpenModal}
-      openModal={openModal}
-    />      
+            )}  
+        />
+        
+          {!!openModal && (
+            <Modal>
+              <TodoForm 
+                setOpenModal={setOpenModal}
+                addTodo={addTodo}
+              />
+            </Modal>
+          )}
+      <CreateTodoButton
+        setOpenModal={setOpenModal}
+        openModal={openModal}
+      />      
   </React.Fragment>
 
   );

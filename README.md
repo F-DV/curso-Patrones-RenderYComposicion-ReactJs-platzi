@@ -1,6 +1,7 @@
 # curso-Patrones-RenderYComposicion-ReactJs-platzi
 
-
+# Render Props
+-El término "render prop" se refiere a una técnica para compartir código entre componentes de React utilizando un accesorio cuyo valor es una función.
 
 ## Commits
 
@@ -14,4 +15,6 @@
 - En App hacemos uso de useTodos trayendo todas las propiedades que pasaremos a los componentes.
 - pasamos las propiedades de App a TodoForm y elimina TodoContext del Form
 
-
+# Render Props
+- cambiamos TodoList al estilo Render props.
+- enviamos las funciones al componente y en este realiamos los condicionales
