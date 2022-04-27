@@ -11,6 +11,7 @@ import {Todosloading} from '../TodosLoading/index';
 import {TodosError} from '../TodosError/index';
 import {TodoHeader} from '../TodoHeader/index';
 import {useTodos} from './useTodos'
+import {TodoSearchResults} from '../TodoSearchResults/index'
 
 function App() {
   const {
@@ -48,9 +49,23 @@ function App() {
           loading={loading}
           onLoading={()=> <Todosloading/>}
           searchTodos={searchTodos}
-          onEmpty={()=> <Emptytodos/>}  
+          totalTodos={totalTodos}
+          onEmpty={()=> <Emptytodos/>} 
+          onTodoSearchResults={()=> <TodoSearchResults
+            searchText={searchValue}
+          />}  
           
           render={todo => (
+            <TodoItem 
+              key={todo.text} 
+              text={todo.text}
+              completed={todo.completed}
+              onComplete={()=>completeTodo(todo.text)}
+              onDelete ={() => deleteTodo(todo.text)}     
+              />
+              )}  
+        >
+          {todo => (
           <TodoItem 
             key={todo.text} 
             text={todo.text}
@@ -58,8 +73,9 @@ function App() {
             onComplete={()=>completeTodo(todo.text)}
             onDelete ={() => deleteTodo(todo.text)}     
             />
-            )}  
-        />
+            )}
+          </TodoList>
+
         
           {!!openModal && (
             <Modal>

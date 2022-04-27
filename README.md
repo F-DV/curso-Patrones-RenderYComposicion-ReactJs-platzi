@@ -18,3 +18,7 @@
 # Render Props
 - cambiamos TodoList al estilo Render props.
 - enviamos las funciones al componente y en este realiamos los condicionales
+
+# Ejemplo de Render props y RenderFunctions
+- Pasamos las propiedades a TodoList por Render props y Render Funcions
+- las Render functions es por medio de children
