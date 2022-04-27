@@ -10,6 +10,7 @@ import {TodoForm} from '../TodoForm'
 import {Emptytodos} from '../EmptyTodos/index';
 import {Todosloading} from '../TodosLoading/index';
 import {TodosError} from '../TodosError/index';
+import {TodoHeader} from '../TodoHeader/index';
 
 
 function AppUI(){
@@ -22,18 +23,31 @@ function AppUI(){
         deleteTodo,
         openModal,
         setOpenModal,
+        totalTodos,
+        completedTodos,
+        searchValue,
+        setSearchValue
     } = React.useContext(TodoContext);
 
     return(
     <React.Fragment>
-      <TodoCounter/>
-      <TodoSearch/>
+      <TodoHeader>
+        <TodoCounter
+          totalTodos={totalTodos}
+          completedTodos={completedTodos}    
+        />
+        
+        <TodoSearch
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        />
+      </TodoHeader>
         <TodoList>
             {error && <TodosError/>}
             {loading && 
             new Array(4).fill().map((item, index)=>(
               <Todosloading key={index} />))}
-            {(!loading && !searchTodos.length) && <p>!Crea Tú primer TODO¡</p>}
+            {(!loading && !searchTodos.length) && <Emptytodos/>}
 
             {searchTodos.map(todo => (
             <TodoItem 
