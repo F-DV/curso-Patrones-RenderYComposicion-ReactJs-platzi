@@ -52,3 +52,6 @@
 - Creamos en useLocalStorage un estado para para recargar useEffect cada vez que tengamos un cambio en storage y sincronizar todas las ventanas de la aplicación.
 - Se crea funcion sincronizeItem para para retornar el control del estado de sincronización. 
 - sincronizeItem se utiliza para cuando le demos al boton para sincronizar , este active el useEffect y por ende recarge lapagina denuevo.
+
+# Cambiamos la logica de HOC hacia hooks ya que es mas facil de leer
+- 

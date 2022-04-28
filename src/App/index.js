@@ -12,7 +12,7 @@ import {TodosError} from '../TodosError/index';
 import {TodoHeader} from '../TodoHeader/index';
 import {useTodos} from './useTodos'
 import {TodoSearchResults} from '../TodoSearchResults/index';
-import {ChangeAlertWithStorageListener} from '../ChangeAlert/index';
+import {ChangeAlert} from '../ChangeAlert/index';
 
 function App() {
   const {
@@ -94,7 +94,7 @@ function App() {
         openModal={openModal}
       /> 
 
-      <ChangeAlertWithStorageListener 
+      <ChangeAlert
         sincronize={sincronizeTodos}
       />     
   </React.Fragment>
