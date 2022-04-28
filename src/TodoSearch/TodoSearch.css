@@ -24,8 +24,10 @@
     
   }
 
-  .TodoSearch:hover{
+.TodoSearch:hover{
 
     background: linear-gradient(to bottom, white, rgb(196, 196, 248));
-    
   }
+.TodoSearch:disabled{
+  opacity: 25%;
+}
