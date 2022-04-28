@@ -37,7 +37,7 @@
 - como estos 2 componentes estan dentro de un componente padre llamado <TodoHeader>, Nosotros podemos enviarle esa propiedad al <TodoHeader> y utilizar React.Children para iterar los dos componentes hijos como un array y React.cloneElement para enviarle la propiedad loading.
 - Estas herramientas no son muy populares pero existen.
 
-# Notificando cambios StrorageEventListener
+# Notificando cambios StrorageEventListener (utilzanco Hight Order Component)
 
 - Creamos un nuevo componente llamado ChangeAlert.
 - Luego lo agregamos despues del componente createTodoButton.
@@ -51,3 +51,4 @@
 - si el cambio es en el storage de nuestra aplicacion , cambiamos el estado.
 - Creamos en useLocalStorage un estado para para recargar useEffect cada vez que tengamos un cambio en storage y sincronizar todas las ventanas de la aplicación.
 - Se crea funcion sincronizeItem para para retornar el control del estado de sincronización. 
+- sincronizeItem se utiliza para cuando le demos al boton para sincronizar , este active el useEffect y por ende recarge lapagina denuevo.
