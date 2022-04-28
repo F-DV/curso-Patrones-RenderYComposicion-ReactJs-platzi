@@ -3,6 +3,13 @@
 # Render Props
 -El término "render prop" se refiere a una técnica para compartir código entre componentes de React utilizando un accesorio cuyo valor es una función.
 
+# HOC -> High Order Components
+- Son funciones dentro de otras funciones 
+- la funcion mas interna retorna un componente
+- 
+
+-----------
+
 ## Commits
 
 # Composicion de componentes 
@@ -29,3 +36,18 @@
 -> En nuestro caso los componentes <TodoSearch> y <TodoCounter> reciben la propiedad loading
 - como estos 2 componentes estan dentro de un componente padre llamado <TodoHeader>, Nosotros podemos enviarle esa propiedad al <TodoHeader> y utilizar React.Children para iterar los dos componentes hijos como un array y React.cloneElement para enviarle la propiedad loading.
 - Estas herramientas no son muy populares pero existen.
+
+# Notificando cambios StrorageEventListener
+
+- Creamos un nuevo componente llamado ChangeAlert.
+- Luego lo agregamos despues del componente createTodoButton.
+- Se crea componente withStoraengeListener.
+- withStoraengeListener sera HOC.
+- lo importamos en ChangeAlert.
+- En App importamos el resultado del componente ChangeAlert.
+- se Crea un estado en la segunda funcion del HOC.
+- En este estado vamos a guardar si hubo cambios en nuestra aplicacion.
+- Creamos un addEvenListener de window que escuhce los cambios en storage
+- si el cambio es en el storage de nuestra aplicacion , cambiamos el estado.
+- Creamos en useLocalStorage un estado para para recargar useEffect cada vez que tengamos un cambio en storage y sincronizar todas las ventanas de la aplicación.
+- Se crea funcion sincronizeItem para para retornar el control del estado de sincronización. 
