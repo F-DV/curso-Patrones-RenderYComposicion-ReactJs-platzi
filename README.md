@@ -21,4 +21,11 @@
 
 # Ejemplo de Render props y RenderFunctions
 - Pasamos las propiedades a TodoList por Render props y Render Funcions
-- las Render functions es por medio de children
+- las Render functions es por medio de children.
+
+# React.Children y React.cloneElement
+- React.Children.toArray: Permite que el contenedor de dos o mas componentes React, sean tratados como Array.
+- React.cloneElement : Nos permite clonar 1 componente del contenedor y pasarle una o mas propiedades
+-> En nuestro caso los componentes <TodoSearch> y <TodoCounter> reciben la propiedad loading
+- como estos 2 componentes estan dentro de un componente padre llamado <TodoHeader>, Nosotros podemos enviarle esa propiedad al <TodoHeader> y utilizar React.Children para iterar los dos componentes hijos como un array y React.cloneElement para enviarle la propiedad loading.
+- Estas herramientas no son muy populares pero existen.
